@@ -6,5 +6,15 @@ module.exports = [
     name: "hotelfour",
     starRating: 4,
     facilities: ["car park", "pool", "gym"]
+  },
+  {
+    name: "hotelfive",
+    starRating: 2,
+    facilities: ["car park", "pool", "gym", "spa"]
+  },
+  {
+    name: "hotelsix",
+    starRating: 5,
+    facilities: ["car park", "pool", "gym", "spa", "cinema"]
   }
 ];

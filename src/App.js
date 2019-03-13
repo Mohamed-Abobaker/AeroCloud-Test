@@ -75,7 +75,8 @@ class App extends Component {
         {filteredHotels.map(hotel => {
           return (
             <p key={hotel.name}>
-              Name: {hotel.name}, Rating: {hotel.starRating}
+              Name: {hotel.name}, Rating: {hotel.starRating}, Facilities:{" "}
+              {hotel.facilities.join(", ") || "N/A"}
             </p>
           );
         })}

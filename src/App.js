@@ -5,17 +5,33 @@ import * as data from "./data";
 class App extends Component {
   state = {
     hotels: data,
-    arr1: ["car park", "pool", "gym"]
+    facils: ["car park", "pool", "gym"],
+    chosenFacils: []
+  };
+
+  handleCheckBox = e => {
+    const { checked, value } = e.target;
+    const change = [...this.state.chosenFacils];
+    change.splice(change.indexOf(value), 1);
+
+    checked
+      ? this.setState({
+          chosenFacils: [value, ...this.state.chosenFacils]
+        })
+      : this.setState({
+          chosenFacils: change
+        });
   };
 
   render() {
-    const { hotels, arr1 } = this.state;
+    const { hotels, facils, chosenFacils } = this.state;
+    console.log(chosenFacils);
     return (
       <div className="App">
         <h1>Hotels</h1>
         <form>
           <p>Filter By: </p>
-          {arr1.map(facility => {
+          {facils.map(facility => {
             return (
               <div key={facility}>
                 <label htmlFor={`${facility}`}>{facility}</label>

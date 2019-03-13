@@ -24,6 +24,20 @@ class App extends Component {
         });
   };
 
+  handleSortBy = e => {
+    e.target.value < 2
+      ? this.setState({
+          hotels: this.state.hotels.sort((a, b) => {
+            return b.starRating - a.starRating;
+          })
+        })
+      : this.setState({
+          hotels: this.state.hotels.sort((a, b) => {
+            return a.starRating - b.starRating;
+          })
+        });
+  };
+
   render() {
     const { hotels, facils, chosenFacils } = this.state;
     const filteredHotels = filterFunc(hotels, chosenFacils);

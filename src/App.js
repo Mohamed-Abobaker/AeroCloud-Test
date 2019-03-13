@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import "./App.css";
 import * as data from "./data";
+import { filterFunc } from "./utils";
 
 class App extends Component {
   state = {
@@ -25,7 +26,7 @@ class App extends Component {
 
   render() {
     const { hotels, facils, chosenFacils } = this.state;
-    console.log(chosenFacils);
+    const filteredHotels = filterFunc(hotels, chosenFacils);
     return (
       <div className="App">
         <h1>Hotels</h1>
@@ -47,7 +48,7 @@ class App extends Component {
           <br />
         </form>
         <h2>Results</h2>
-        {hotels.map(hotel => {
+        {filteredHotels.map(hotel => {
           return (
             <p key={hotel.name}>
               Name: {hotel.name}, Rating: {hotel.starRating}

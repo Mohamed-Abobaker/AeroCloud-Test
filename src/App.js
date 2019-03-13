@@ -48,6 +48,16 @@ class App extends Component {
           <br />
         </form>
         <h2>Results</h2>
+        <div>
+          <label htmlFor="SortBy">Sort By: </label>
+          <select id="SortBy" onChange={this.handleSortBy}>
+            <option key={"disabled"} value={null} defaultValue disabled>
+              Select
+            </option>
+            <option value={1}>Ratings (descending)</option>
+            <option value={2}>Ratings (ascending)</option>
+          </select>
+        </div>
         {filteredHotels.map(hotel => {
           return (
             <p key={hotel.name}>
